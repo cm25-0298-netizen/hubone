@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hub One — Un hub, no solo un carwash</title>
+<title>Hub One Center — Un hub, no solo un carwash</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
@@ -274,6 +274,84 @@
   .rsc-card h3{ font-family:var(--display); font-size:18px; font-weight:700; color:var(--navy); margin-bottom:10px; }
   .rsc-card p{ font-size:14.5px; color:#4B5567; }
 
+  /* ---------- TRACKING ---------- */
+  .tracking{ padding:110px 0; background:var(--white); overflow:hidden; }
+  .tracking .wrap{ display:grid; grid-template-columns:.85fr 1.15fr; gap:60px; align-items:center; }
+  .tracking h2{ font-size:clamp(28px,3.2vw,38px); font-weight:800; color:var(--navy); margin:14px 0 20px; }
+  .tracking .desc{ color:#5B6577; font-size:15.5px; margin-bottom:8px; }
+
+  .tracking-card{
+    position:relative; background:var(--navy); border-radius:24px;
+    padding:36px 34px 32px; color:var(--white); overflow:hidden;
+    box-shadow:0 30px 60px -30px rgba(10,28,58,.5);
+  }
+  .tracking-card::before{
+    content:""; position:absolute; inset:0;
+    background:radial-gradient(ellipse 70% 60% at 100% 0%, rgba(0,210,255,.16), transparent 65%);
+    pointer-events:none;
+  }
+  .tc-head{
+    position:relative; display:flex; align-items:center; justify-content:space-between;
+    flex-wrap:wrap; gap:10px 16px; margin-bottom:34px;
+  }
+  .tc-title{
+    font-family:var(--display); font-weight:800; font-size:12.5px;
+    letter-spacing:.08em; text-transform:uppercase; color:rgba(255,255,255,.85);
+  }
+  .tc-title strong{ color:var(--cyan); }
+  .tc-live{
+    display:inline-flex; align-items:center; gap:7px;
+    font-family:var(--display); font-weight:700; font-size:11.5px;
+    letter-spacing:.1em; text-transform:uppercase; color:var(--cyan);
+    flex:none;
+  }
+  .tc-live i{
+    width:7px; height:7px; border-radius:50%; background:var(--cyan);
+    box-shadow:0 0 0 0 rgba(0,210,255,.6); animation:tcPulse 1.8s ease-out infinite;
+  }
+  @keyframes tcPulse{
+    0%{ box-shadow:0 0 0 0 rgba(0,210,255,.55); }
+    70%{ box-shadow:0 0 0 8px rgba(0,210,255,0); }
+    100%{ box-shadow:0 0 0 0 rgba(0,210,255,0); }
+  }
+
+  .tc-steps{ position:relative; display:flex; align-items:flex-start; margin-bottom:34px; }
+  .tc-step{ display:flex; flex-direction:column; align-items:center; gap:12px; flex:none; width:76px; }
+  .tc-step span{ font-size:12.5px; font-weight:600; color:rgba(255,255,255,.6); text-align:center; }
+  .tc-step.done span{ color:rgba(255,255,255,.9); }
+  .tc-step.current span{ color:var(--white); font-weight:700; }
+  .tc-dot{
+    width:38px; height:38px; border-radius:50%; flex:none;
+    display:flex; align-items:center; justify-content:center;
+    background:rgba(255,255,255,.08); border:1.5px solid rgba(255,255,255,.18);
+    font-family:var(--display); font-weight:800; font-size:13.5px; color:rgba(255,255,255,.6);
+  }
+  .tc-dot svg{ width:16px; height:16px; stroke:var(--white); }
+  .tc-step.done .tc-dot{ background:var(--grad); border-color:transparent; }
+  .tc-step.current .tc-dot{ background:rgba(0,210,255,.16); border-color:var(--cyan); }
+  .tc-dot .pulse{
+    width:11px; height:11px; border-radius:50%; background:var(--cyan);
+    box-shadow:0 0 0 0 rgba(0,210,255,.6); animation:tcPulse 1.8s ease-out infinite;
+  }
+  .tc-line{ flex:1 1 auto; height:2px; background:rgba(255,255,255,.16); margin:18px -6px 0; border-radius:2px; }
+  .tc-line.done{ background:var(--grad); }
+
+  .tc-attendant{
+    position:relative; display:flex; align-items:center; gap:14px;
+    padding-top:26px; border-top:1px solid rgba(255,255,255,.14);
+  }
+  .tc-avatar{
+    flex:none; width:40px; height:40px; border-radius:50%; background:var(--grad);
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--display); font-weight:800; font-size:13px; color:var(--navy);
+  }
+  .tc-attendant p{ font-size:14px; color:rgba(255,255,255,.78); line-height:1.5; }
+  .tc-attendant strong{ color:var(--white); }
+
+  @media (max-width:640px){
+    .tc-steps{ overflow-x:auto; padding-bottom:4px; }
+  }
+
   /* ---------- CTA ---------- */
   .cta-band{
     background:var(--navy); color:var(--white); text-align:center;
@@ -309,6 +387,7 @@
     .pain-grid, .svc-grid, .mvv-grid{ grid-template-columns:repeat(2,1fr); }
     .price-grid{ grid-template-columns:repeat(2,1fr); }
     .audience .wrap{ grid-template-columns:1fr; }
+    .tracking .wrap{ grid-template-columns:1fr; }
     .rsc .wrap{ grid-template-columns:1fr; }
     footer .wrap{ grid-template-columns:1fr 1fr; row-gap:32px; }
   }
@@ -343,6 +422,7 @@
       <div class="nav-links">
         <a href="#servicios">Servicios</a>
         <a href="#tarifas">Tarifas</a>
+        <a href="#seguimiento">Seguimiento</a>
         <a href="#nosotros">Nosotros</a>
         <a href="#compromiso">Compromiso</a>
       </div>
@@ -492,6 +572,64 @@
         <div class="num">03</div>
         <h3>Familias sin opciones cercanas</h3>
         <p>Pocos espacios permiten a un adulto resolver un mandado y, a la vez, que sus hijos jueguen de forma segura y supervisada.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tracking" id="seguimiento">
+  <div class="wrap">
+    <div class="tracking-copy">
+      <span class="eyebrow">Seguimiento en vivo</span>
+      <h2>Sigue tu vehículo, paso a paso.</h2>
+      <p class="desc">Desde que entregas las llaves hasta que te avisamos que está listo, ves el progreso real de tu vehículo — sin llamadas, sin adivinar cuánto falta.</p>
+      <div class="check-list">
+        <div class="check-item">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+          <span>Notificaciones automáticas en cada etapa del servicio</span>
+        </div>
+        <div class="check-item">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+          <span>Sabes quién atiende tu carro y en qué bahía está</span>
+        </div>
+        <div class="check-item">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+          <span>Tiempo estimado de entrega, actualizado al instante</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tracking-card" role="img" aria-label="Panel de estatus de vehículo en tiempo real: recibido, lavado y detallado completados, en proceso el detallado, pendiente listo">
+      <div class="tc-head">
+        <span class="tc-title">Estatus de tu vehículo — <strong>Placa A123456</strong></span>
+        <span class="tc-live"><i></i>En vivo</span>
+      </div>
+
+      <div class="tc-steps">
+        <div class="tc-step done">
+          <div class="tc-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+          <span>Recibido</span>
+        </div>
+        <div class="tc-line done"></div>
+        <div class="tc-step done">
+          <div class="tc-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+          <span>Lavado</span>
+        </div>
+        <div class="tc-line done"></div>
+        <div class="tc-step current">
+          <div class="tc-dot"><span class="pulse"></span></div>
+          <span>Detallado</span>
+        </div>
+        <div class="tc-line"></div>
+        <div class="tc-step">
+          <div class="tc-dot">4</div>
+          <span>Listo</span>
+        </div>
+      </div>
+
+      <div class="tc-attendant">
+        <div class="tc-avatar">JR</div>
+        <p>Atendido por <strong>Jonathan R.</strong> · Bahía 3 · tiempo estimado <strong>9 min</strong></p>
       </div>
     </div>
   </div>
